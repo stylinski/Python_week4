@@ -18,10 +18,12 @@ filename = input("Please enter a filename: ")
 try:
     file = open(filename, "r")
     data = file.read()
-    print("File content:\n", data)
+    print(data)
 except FileNotFoundError:
     print("File not found.")
+except PermissionError:
+    print("You don’t have permission to read this file.")
 except Exception as e:
-    print("Error:", e)
+    print("An error occurred:", e)
 finally:
     print("File Operation Complete.")
